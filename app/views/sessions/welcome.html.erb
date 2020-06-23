@@ -1,3 +1,7 @@
 <h1>Hello <%= @user %>!</h1>
 <p>Do you want to know a secret?</p>
 <%= link_to "Don't tell...", "/secret" %>
+<br><br>
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+    <input type=submit value='logout'>
+  <% end %>

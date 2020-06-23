@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     def welcome
-        redirect_to controller: 'sessions', action: 'new' unless session.include? :name
+        require_login
         @user = current_user
     end
     
@@ -18,5 +18,6 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :name
+        redirect_to action: "new"
     end
 end
